@@ -1,41 +1,37 @@
-const button = document.getElementById('togglePlay')
+const chillStudyMusic = '7MMrQJA2EgIgjanx9acsAZ'
 
-window.onSpotifyWebPlaybackSDKReady = () => {
-    const token =
-        'BQBHvwABLNYbr2vBl3ppEX9uaxWyopV6r67SfMHG09WMVukQEEwwlYLix3j9-Xg8NVesuRBi6gYMy83kIynt2fUmXCp5HvvrSTdC_1uaBM68903IektGOrW1j0WWKy3PoZdsJwCrQxjzzULr47Bmcq0Hqu_OzTCInBcHQNLad7-qKmE6U3LTl13bNJnfCE9ZdtDURdkoJdn_D1zlSbJAoy0'
-    const player = new Spotify.Player({
-        name: 'Web Playback SDK Quick Start Player',
-        getOAuthToken: cb => {
-            cb(token)
+const playbutton = document.querySelector('#togglePlay')
+const container = document.querySelector('#container')
+
+const clientId = config.clientId
+const clientSecret = config.clientSecret
+
+const getToken = async () => {
+    const result = await fetch('https://accounts.spotify.com/api/token', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Authorization: 'Basic ' + btoa(clientId + ':' + clientSecret),
         },
-        volume: 0.5,
+        body: 'grant_type=client_credentials',
     })
-
-    // Ready
-    player.addListener('ready', ({ device_id }) => {
-        console.log('Ready with Device ID', device_id)
-    })
-
-    // Not Ready
-    player.addListener('not_ready', ({ device_id }) => {
-        console.log('Device ID has gone offline', device_id)
-    })
-
-    player.addListener('initialization_error', ({ message }) => {
-        console.error(message)
-    })
-
-    player.addListener('authentication_error', ({ message }) => {
-        console.error(message)
-    })
-
-    player.addListener('account_error', ({ message }) => {
-        console.error(message)
-    })
-
-    document.getElementById('togglePlay').onclick = function () {
-        player.togglePlay()
-    }
-
-    player.connect()
+    const data = await result.json()
+    return data.access_token
 }
+
+const getTrack = async track_id => {
+    const token = await getToken()
+    const result = await fetch(
+        `https://api.spotify.com/v1/tracks/${track_id}`,
+        {
+            method: 'GET',
+            headers: {
+                Authorization: 'Bearer ' + token,
+            },
+        }
+    )
+    const data = await result.json()
+    console.log(data)
+}
+
+getTrack(chillStudyMusic)
