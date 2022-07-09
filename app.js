@@ -31,7 +31,5 @@ const getTrack = async track_id => {
         }
     )
     const data = await result.json()
-    console.log(data)
+    console.log(data.uri)
 }
-
-getTrack(chillStudyMusic)

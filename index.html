@@ -10,8 +10,23 @@
         <script defer src="app.js"></script>
     </head>
     <body>
-        <h1>Spotify Web Playback SDK Quick Start</h1>
-        <button id="togglePlay">Play</button>
-        <div id="container"></div>
+        <h1>Music Player</h1>
+        <div class="music-container">
+            <div class="music-info">
+                <h4 id="title">My Song</h4>
+                <div class="progress-container">
+                    <div class="progress"></div>
+                </div>
+            </div>
+            <audio src="#"></audio>
+            <div class="img-container"></div>
+            <div class="navigation">
+                <button id="prev" class="action-btn">Go Back</button>
+                <button id="play" class="action-btn action-btn-big">
+                    Play
+                </button>
+                <button id="next" class="action-btn">Go Forward</button>
+            </div>
+        </div>
     </body>
 </html>
