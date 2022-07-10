@@ -2,7 +2,7 @@ const clientId = config.clientId
 const clientSecret = config.clientSecret
 
 const embedIframe = document.querySelector('#embed-iframe')
-const button = document.querySelector('.log-in')
+const loginBtn = document.querySelector('.log-in')
 
 //Enable the user to log into their spotify
 const SPOTIFY_AUTHORIZE_ENDPOINT = 'https://accounts.spotify.com/authorize'
@@ -61,9 +61,6 @@ const getTrack = async () => {
     embedIframe.append(makeIframe)
 }
 
-getTrack()
-
-button.addEventListener('click', () => {
+loginBtn.addEventListener('click', () => {
     handleLogin()
-    button.display = 'none'
 })
