@@ -46,8 +46,8 @@ body {
 }
 
 #logo-image {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     object-fit: contain;
 }
 
@@ -55,12 +55,15 @@ body {
     font-size: 30px;
     font-weight: bold;
     padding: 10px;
+    margin-top: 10px;
 }
 
 .intro-text {
     font-size: 16px;
     padding: 10px;
     text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 button {
@@ -93,4 +96,9 @@ button:hover {
 
 .close-button:hover {
     background: gray;
+}
+
+.link {
+    text-decoration: none;
+    color: #1e1b18;
 }
