@@ -5,17 +5,32 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Get to Work!</title>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="frontpagestyle.css" />
         <script defer type="text/javascript" src="./config.js"></script>
-        <script defer src="app.js"></script>
+        <script defer src="frontpage.js"></script>
     </head>
     <body>
         <div class="container">
-            <div class="front-page">
-                <div class="front-page-graphic"></div>
-                <div class="front-page-intro">
-                    <button class="log-in">Log into Your Spotify</button>
+            <div class="image-container">
+                <img
+                    src="https://images.unsplash.com/photo-1536662788222-6927ce05daea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                    alt="person holding gray and black clock"
+                    id="intro-image"
+                />
+            </div>
+            <div class="button-container">
+                <img
+                    src="https://img.icons8.com/ios/50/000000/book-and-pencil.png"
+                    id="logo-image"
+                />
+                <div class="intro-text">
+                    Please log in to your Spotify account fully experience this
+                    app.
                 </div>
+                <button class="log-in">Log into Your Spotify</button>
+                <button class="close-button">
+                    Continue without using Spotify
+                </button>
             </div>
         </div>
     </body>

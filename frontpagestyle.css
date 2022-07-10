@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(0deg, white 28%, pink 92%);
+}
+
+.container {
+    min-height: 100vh;
+    min-width: 100vw;
+    border: 3px solid red;
+    display: grid;
+    grid-template-rows: 2fr 3fr;
+    padding: 10px;
+}
+
+.image-container {
+    height: 100%;
+    width: 100%;
+    grid-row: 1;
+}
+
+#intro-image {
+    height: 40vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.button-container {
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: 1fr 2fr 2fr 2fr;
+}
+
+#logo-image {
+    grid-row: 1;
+}
