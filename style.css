@@ -96,6 +96,30 @@ button {
     flex-shrink: 0;
 }
 
+.progress-ring_circle {
+    transition: 0.5s;
+    transform: rotate(-90deg);
+    stroke: var(--coral);
+}
+
+.pulsing {
+    stroke: var(--blue);
+    animation: pulse 0.9s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: rotate(-90deg) scale(1);
+    }
+    50% {
+        transform: rotate(-90deg) scale(1.05);
+    }
+    75% {
+        transform: rotate(-90deg) scale(0.8);
+    }
+}
+
 .nav-bar {
     flex-shrink: 0;
     background: var(--white);

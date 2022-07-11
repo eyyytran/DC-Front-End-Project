@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="style.css" />
         <script defer type="text/javascript" src="./config.js"></script>
         <script defer src="app.js"></script>
+        <script defer src="timer.js"></script>
+        <script defer src="circle.js"></script>
     </head>
     <body>
         <div class="header">
@@ -19,7 +21,35 @@
                 <button class="playlist-button" id="medium">Steady</button>
                 <button class="playlist-button" id="hard">Crisis</button>
             </div>
-            <div class="timer-page"></div>
+            <div class="timer-page">
+                <div class="clock">
+                    <div class="mins">0</div>
+                    <div>:</div>
+                    <div class="secs">00</div>
+                    <svg class="progress-ring" height="120" width="120">
+                        <circle
+                            class="progress-ring_circle"
+                            stroke-width="8"
+                            fill="transparent"
+                            cx="60"
+                            cy="60"
+                            r="50"
+                        />
+                    </svg>
+                </div>
+
+                <div class="timer-buttons">
+                    <button id="timer-start">Start Session</button>
+                    <button id="timer-reset">Reset</button>
+                    <button id="timer-pause">Pause</button>
+                </div>
+
+                <form action=".">
+                    <input type="number" value="1" id="focusTime" />
+                    <input type="number" value="1" id="breakTime" />
+                    <button type="submit">Save Settings</button>
+                </form>
+            </div>
         </div>
         <div class="spotify-player">
             <div id="embed-iframe"></div>
