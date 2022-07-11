@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Open+Sans&family=Poppins&family=Roboto&family=Work+Sans&display=swap');
 
+:root {
+    --purple: #aa59c0;
+    --yellow: #f3d012;
+    --periwinkle: #9eb4f1;
+    --blue: #5fbbda;
+    --coral: #f9878e;
+    --white: #f2f2f2;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -8,7 +17,7 @@ body {
     height: 100vh;
     width: 100vw;
     margin: 0;
-    background: #0a2463;
+    background: var(--periwinkle);
     background-image: url('https://images.unsplash.com/photo-1612599316791-451087c7fe15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1124&q=80');
     color: #1e1b18;
     font-family: 'Work-Sans', sans-serif;
@@ -18,7 +27,7 @@ body {
     min-height: 100vh;
     min-width: 100vw;
     display: grid;
-    grid-template-rows: 2fr 3fr;
+    grid-template-rows: 6fr 5fr;
 }
 
 .image-container {
@@ -41,14 +50,12 @@ body {
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
-    background: #fffaff;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+    background: #f2f2f2;
 }
 
 #logo-image {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     object-fit: contain;
 }
 
@@ -56,15 +63,15 @@ body {
     font-size: 30px;
     font-weight: bold;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .intro-text {
     font-size: 16px;
     padding: 10px;
     text-align: center;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 button {
@@ -74,7 +81,7 @@ button {
     border-radius: 10px;
     font-size: 18px;
     border: none;
-    color: #fffaff;
+    color: #f2f2f2;
 }
 
 button:hover {
@@ -82,7 +89,7 @@ button:hover {
 }
 
 .log-in {
-    background: #45af92;
+    background: #f9878e;
 }
 
 .log-in:hover {
@@ -90,9 +97,8 @@ button:hover {
 }
 
 .close-button {
-    color: #1e1b18;
-    background: #fffaff;
-    border: 3px solid rgb(236, 236, 236);
+    background: #1e1b18;
+    border: 3px solid white;
 }
 
 .close-button:hover {
@@ -101,5 +107,5 @@ button:hover {
 
 .link {
     text-decoration: none;
-    color: #1e1b18;
+    color: var(--white);
 }

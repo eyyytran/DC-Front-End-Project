@@ -3,6 +3,7 @@ const clientSecret = config.clientSecret
 
 const embedIframe = document.querySelector('#embed-iframe')
 const makePlayerBtn = document.querySelector('#makeiframe')
+const greeting = document.querySelector('.greeting')
 
 const getToken = async () => {
     const result = await fetch('https://accounts.spotify.com/api/token', {
@@ -37,7 +38,7 @@ const getTrack = async () => {
     //make the iframe
     const makeIframe = document.createElement('iframe')
     makeIframe.id = 'spotify-player'
-    makeIframe.style = 'border-radius:12px'
+    makeIframe.style = 'border-radius:0px'
 
     makeIframe.src = `https://open.spotify.com/embed/playlist/${easyMusic}?utm_source=generator&theme=0`
     makeIframe.width = '100%'
@@ -49,4 +50,7 @@ const getTrack = async () => {
     embedIframe.append(makeIframe)
 }
 
-makePlayerBtn.addEventListener('click', () => getTrack())
+makePlayerBtn.addEventListener('click', () => {
+    getTrack()
+    greeting.style.display = 'none'
+})
