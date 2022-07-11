@@ -10,17 +10,42 @@
         <script defer src="app.js"></script>
     </head>
     <body>
+        <div class="header">
+            <div class="greeting">Which study mode are you in today?</div>
+        </div>
         <div class="container">
-            <div class="header">
-                <div class="greeting">Hello</div>
-                <div id="embed-iframe"></div>
-            </div>
             <div class="playlist-menu">
-                <button id="easy">Casual Studying</button>
-                <button id="medium">Steady Work</button>
-                <button id="hard">Crisis</button>
+                <button class="playlist-button" id="easy">Casual</button>
+                <button class="playlist-button" id="medium">Steady</button>
+                <button class="playlist-button" id="hard">Crisis</button>
             </div>
-            <div class="nav-bar"></div>
+            <div class="timer-page"></div>
+        </div>
+        <div class="spotify-player">
+            <div id="embed-iframe"></div>
+        </div>
+        <div class="nav-bar">
+            <button id="music-button" class="nav-bar-button">
+                <img
+                    src="/logos/music-solid.svg"
+                    alt="musical note button"
+                    class="nav-bar-image"
+                />
+            </button>
+            <button id="timer-button" class="nav-bar-button">
+                <img
+                    src="/logos/stopwatch-solid.svg"
+                    alt="stop watch button"
+                    class="nav-bar-image"
+                />
+            </button>
+            <button id="user-button" class="nav-bar-button">
+                <img
+                    src="/logos/user-solid.svg"
+                    alt="user image button"
+                    class="nav-bar-image"
+                />
+            </button>
         </div>
     </body>
 </html>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Open+Sans&family=Poppins&family=Roboto&family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root {
     --purple: #aa59c0;
@@ -10,6 +10,7 @@
 }
 
 html {
+    height: 100%;
     box-sizing: border-box;
 }
 
@@ -20,38 +21,95 @@ html {
 }
 
 body {
+    height: 100%;
     margin: 0;
     padding: 0;
     background-image: black;
-    font-family: 'Work-Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
-.container {
-    min-height: 100vh;
-    min-width: 100vw;
-    display: grid;
-    grid-template-rows: 1fr 4fr 1fr;
-    padding-top: 0;
+button {
+    font-family: 'Poppins', sans-serif;
+    border: none;
 }
-
 .header {
-    grid-row: 1;
+    flex-shrink: 0;
+    height: 130px;
+    width: 100%;
 }
 
 .greeting {
-    height: 100%;
-    width: 100%;
-    background: cornflowerblue;
+    background: rgb(249, 135, 142);
+    background: linear-gradient(
+        133deg,
+        rgba(249, 135, 142, 1) 0%,
+        rgba(242, 242, 242, 1) 12%
+    );
+    height: inherit;
+    width: inherit;
+    text-align: left;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.container {
+    flex: 1 0 auto;
+    background: var(--white);
+    height: calc(viewport - 230px);
+    overflow-y: auto;
 }
 
 .playlist-menu {
     height: 100%;
     width: 100%;
-    background: coral;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    display: none;
+    /* just testing, erase line 71 when done making the other pages */
+}
+
+.playlist-button {
+    margin: auto;
+    height: 100px;
+    width: 90%;
+    border-radius: 5px;
+    font-size: 30px;
+}
+
+#easy {
+    background-color: var(--periwinkle);
+}
+
+#medium {
+    background: var(--blue);
+}
+
+#hard {
+    background-color: var(--coral);
+}
+
+.spotify-player {
+    flex-shrink: 0;
 }
 
 .nav-bar {
-    height: 100%;
+    flex-shrink: 0;
+    background: var(--white);
+    background: rgba(102, 102, 102, 0.2);
+    height: 100px;
     width: 100%;
-    background: #aa59c0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.nav-bar-button {
+    background: none;
+    height: 64px;
+    width: 64px;
 }
