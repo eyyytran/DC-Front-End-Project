@@ -1,5 +1,8 @@
 const mainButton = document.getElementById('main-button')
 const modeButtons = document.querySelector('#mode-buttons')
+const pomodoroBtn = document.querySelector('#pomodoro')
+const shortBreakBtn = document.querySelector('#short-break')
+const longBreakBtn = document.querySelector('#long-break')
 
 const timer = {
     pomodoro: 25,
@@ -82,7 +85,19 @@ const switchMode = mode => {
         .querySelectorAll('button[data-mode]')
         .forEach(e => e.classList.remove('active'))
     document.querySelector(`[data-mode="${mode}"]`).classList.add('active')
-    //mode color switch here
+    if (mode === 'pomodoro') {
+        pomodoroBtn.style.background = 'var(--coral)'
+        longBreakBtn.style.background = 'rgba(102, 102, 102, 0.2)'
+        shortBreakBtn.style.background = 'rgba(102, 102, 102, 0.2)'
+    } else if (mode === 'shortBreak') {
+        shortBreakBtn.style.background = 'var(--coral)'
+        longBreakBtn.style.background = 'rgba(102, 102, 102, 0.2)'
+        pomodoroBtn.style.background = 'rgba(102, 102, 102, 0.2)'
+    } else {
+        longBreakBtn.style.background = 'var(--coral)'
+        shortBreakBtn.style.background = 'rgba(102, 102, 102, 0.2)'
+        pomodoroBtn.style.background = 'rgba(102, 102, 102, 0.2)'
+    }
 
     updateClock()
 }

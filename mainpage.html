@@ -22,6 +22,11 @@
                 <button class="playlist-button" id="hard">Crisis</button>
             </div>
             <div class="timer-page">
+                <div class="clock" id="clock">
+                    <span id="minutes">25</span>
+                    <span class="separator">:</span>
+                    <span id="seconds">00</span>
+                </div>
                 <div class="button-group mode-buttons" id="mode-buttons">
                     <button
                         data-mode="pomodoro"
@@ -35,37 +40,34 @@
                         class="button mode-button"
                         id="short-break"
                     >
-                        Short break
+                        Short Break
                     </button>
                     <button
                         data-mode="longBreak"
                         class="button mode-button"
                         id="long-break"
                     >
-                        Long break
+                        Long Break
                     </button>
                 </div>
-            </div>
-        <div class="clock" id="clock">
-          <span id="minutes">25</span>
-          <span class="separator">:</span>
-          <span id="seconds">00</span>
-        </div>
-        <button class="main-button" data-action="start" id="main-button">
-          Start
-        </button>
-      </div>
-                    <svg class="progress-ring" height="120" width="120">
-                        <circle
-                            class="progress-ring_circle"
-                            stroke-width="8"
-                            fill="transparent"
-                            cx="60"
-                            cy="60"
-                            r="50"
-                        />
-                    </svg>
-                </div>
+
+                <button
+                    class="main-button"
+                    data-action="start"
+                    id="main-button"
+                >
+                    Start
+                </button>
+                <svg class="progress-ring" height="120" width="120">
+                    <circle
+                        class="progress-ring_circle"
+                        stroke-width="8"
+                        fill="transparent"
+                        cx="60"
+                        cy="60"
+                        r="50"
+                    />
+                </svg>
             </div>
         </div>
         <div class="spotify-player">

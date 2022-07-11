@@ -2,12 +2,13 @@ const clientId = config.clientId
 const clientSecret = config.clientSecret
 
 const playListMenu = document.querySelector('.playlist-menu')
+const timerPage = document.querySelector('.timer-page')
+const header = document.querySelector('.header')
 
 const embedIframe = document.querySelector('#embed-iframe')
 const playEasy = document.querySelector('#easy')
 const playMedium = document.querySelector('#medium')
 const playHard = document.querySelector('#hard')
-const greeting = document.querySelector('.greeting')
 
 const musicBtn = document.querySelector('#music-button')
 const timerBtn = document.querySelector('#timer-button')
@@ -64,24 +65,29 @@ const getTrack = async userChoice => {
 
 playEasy.addEventListener('click', () => {
     embedIframe.innerHTML = null
+    header.style.display = 'none'
     getTrack('easy')
 })
 
 playMedium.addEventListener('click', () => {
     embedIframe.innerHTML = null
+    header.style.display = 'none'
     getTrack('medium')
 })
 playHard.addEventListener('click', () => {
     embedIframe.innerHTML = null
+    header.style.display = 'none'
     getTrack('hard')
 })
 
 //Nav Bar Functions
 
 musicBtn.addEventListener('click', () => {
+    timerPage.style.display = 'none'
     playListMenu.style.display = 'grid'
 })
 
 timerBtn.addEventListener('click', () => {
     playListMenu.style.display = 'none'
+    timerPage.style.display = 'flex'
 })

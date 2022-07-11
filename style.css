@@ -34,6 +34,11 @@ button {
     font-family: 'Poppins', sans-serif;
     border: none;
 }
+
+button:hover {
+    cursor: pointer;
+}
+
 .header {
     flex-shrink: 0;
     height: 130px;
@@ -92,8 +97,35 @@ button {
     background-color: var(--coral);
 }
 
-.spotify-player {
-    flex-shrink: 0;
+.timer-page {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock {
+    font-size: 50px;
+}
+
+#pomodoro,
+#short-break,
+#long-break {
+    background: rgba(102, 102, 102, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#main-button {
+    background: var(--coral);
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    height: 50px;
+    width: 60%;
 }
 
 .progress-ring_circle {
@@ -118,6 +150,10 @@ button {
     75% {
         transform: rotate(-90deg) scale(0.8);
     }
+}
+
+.spotify-player {
+    flex-shrink: 0;
 }
 
 .nav-bar {
