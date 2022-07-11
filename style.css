@@ -24,7 +24,12 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-image: black;
+    background: rgb(249, 135, 142);
+    background: linear-gradient(
+        133deg,
+        rgba(249, 135, 142, 1) 0%,
+        rgba(242, 242, 242, 1) 12%
+    );
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
@@ -46,12 +51,7 @@ button:hover {
 }
 
 .greeting {
-    background: rgb(249, 135, 142);
-    background: linear-gradient(
-        133deg,
-        rgba(249, 135, 142, 1) 0%,
-        rgba(242, 242, 242, 1) 12%
-    );
+    background: transparent;
     height: inherit;
     width: inherit;
     text-align: left;
@@ -62,7 +62,7 @@ button:hover {
 
 .container {
     flex: 1 0 auto;
-    background: var(--white);
+    background: transparent;
     height: calc(100% - 230px);
     overflow-y: auto;
 }
