@@ -22,10 +22,40 @@
                 <button class="playlist-button" id="hard">Crisis</button>
             </div>
             <div class="timer-page">
-                <div class="clock">
-                    <div class="mins">0</div>
-                    <div>:</div>
-                    <div class="secs">00</div>
+                <div class="timer">
+                    <div class="button-group mode-buttons" id="mode-buttons">
+                        <button
+                            data-mode="pomodoro"
+                            class="button active mode-button"
+                            id="pomodoro"
+                        >
+                            Pomodoro
+                        </button>
+                        <button
+                            data-mode="shortBreak"
+                            class="button mode-button"
+                            id="short-break"
+                        >
+                            Short break
+                        </button>
+                        <button
+                            data-mode="longBreak"
+                            class="button mode-button"
+                            id="long-break"
+                        >
+                            Long break
+                        </button>
+                    </div>
+                </div>
+        <div class="clock" id="js-clock">
+          <span id="minutes">25</span>
+          <span class="separator">:</span>
+          <span id="seconds">00</span>
+        </div>
+        <button class="main-button" data-action="start" id="main-button">
+          Start
+        </button>
+      </div>
                     <svg class="progress-ring" height="120" width="120">
                         <circle
                             class="progress-ring_circle"
@@ -37,18 +67,6 @@
                         />
                     </svg>
                 </div>
-
-                <div class="timer-buttons">
-                    <button id="timer-start">Start Session</button>
-                    <button id="timer-reset">Reset</button>
-                    <button id="timer-pause">Pause</button>
-                </div>
-
-                <form action=".">
-                    <input type="number" value="1" id="focusTime" />
-                    <input type="number" value="1" id="breakTime" />
-                    <button type="submit">Save Settings</button>
-                </form>
             </div>
         </div>
         <div class="spotify-player">

@@ -1,87 +1,88 @@
-const clock = document.querySelector('.clock')
+const mainBtn = document.querySelector('#main-button')
+const modeBtns = document.querySelector('#mode-buttons')
 
-const minDiv = document.querySelector('.mins')
-const secDiv = document.querySelector('.secs')
+const timer = {
+    pomodoro: 25,
+    shortBreak: 5,
+    longBreak: 15,
+    longBreakInterval: 4,
+}
 
-const startBtn = document.querySelector('#timer-start')
-const resetBtn = document.querySelector('#timer-reset')
-const pauseBtn = document.querySelector('#timer-pause')
+let interval
 
-const form = document.querySelector('form')
-const focusTimeInput = document.querySelector('#focusTime')
-const breakTimeInput = document.querySelector('#breakTime')
+const startTimer = () => {
+    let { total } = timer.remainingTime
+    const endTime = Date.parse(new Date()) + total * 1000
 
-localStorage.setItem('btn', 'focus')
+    mainBtn.dataset.action = 'stop'
+    mainBtn.textContent = 'stop'
+    mainBtn.classList.add('active')
 
-let initial, totalsecs, perc, paused, mins, seconds
+    interval = setInterval(function () {
+        timer.remainingTime = getRemainingTime(endTime)
+        updateClock()
 
-const decremenT = () => {
-    minDiv.textContent = Math.floor(seconds / 60)
-    secDiv.textContent = seconds % 60 > 9 ? seconds % 60 : `0${seconds % 60}`
-
-    if (seconds > 0) {
-        seconds--
-        initial = window.setTimeout('decremenT()', 1000)
-    } else {
-        mins = 0
-        seconds = 0
-        //i can put audio or a module here
-        let btn = localStorage.getItem('btn')
-
-        if (btn === 'focus') {
-            startBtn.textContent = 'Start Break'
-            startBtn.classList.add('break')
-            localStorage.setItem('btn', 'break')
-        } else {
-            startBtn.classList.remove('break')
-            startBtn.textContent = 'Start Focus'
-            localStorage.setItem('btn', 'focus')
+        total = timer.remainingTime.total
+        if (total <= 0) {
+            clearInterval(interval)
         }
-        startBtn.style.transform = 'scale(1)'
+    }, 1000)
+}
+
+const getRemainingTime = endTime => {
+    const currentTime = Date.parse(new Date())
+    const difference = endTime - currentTime
+
+    const total = Number.parseInt(difference / 1000, 10)
+    const minutes = Number.parseInt((total / 60) % 60, 10)
+    const seconds = Number.parseInt(total % 60, 10)
+
+    return {
+        total,
+        minutes,
+        seconds,
     }
 }
 
-startBtn.addEventListener('click', () => {
-    let btn = localStorage.getItem('btn')
-    if (btn === 'focus') {
-        mins = +localStorage.getItem('focusTime')
-    } else {
-        mins = +localStorage.getItem('breakTime')
+const handleMode = event => {
+    const { mode } = event.target.dataset
+    if (!mode) return
+    switchMode(mode)
+}
+
+const switchMode = mode => {
+    timer.mode = mode
+    timer.remainingTime = {
+        total: timer[mode] * 60,
+        minutes: timer[mode],
+        seconds: 0,
     }
-    seconds = mins * 60
-    totalsecs = mins * 60
-    setTimeout(decremenT(), 60)
-    startBtn.getElementsByClassName.transform = 'scale(0)'
-    paused = false
+
+    document
+        .querySelectorAll('button[data-mode]')
+        .forEach(e => e.classList.remove('active'))
+    document.querySelector(`[data-mode="${mode}"]`).classList.add('active')
+    circle.style.backgroundColor = `var(--${mode})`
+
+    updateClock()
+}
+
+const updateClock = () => {
+    const { remainingTime } = timer
+    const minutes = `${remainingTime.minutes}`.padStart(2, '0')
+    const seconds = `${remainingTime.seconds}`.padStart(2, '0')
+
+    const min = document.getElementById('minutes')
+    const sec = document.getElementById('seconds')
+}
+
+mainBtn.addEventListener('click', () => {
+    const { action } = mainBtn.dataset
+    if (action === 'start') {
+        startTimer()
+    }
 })
 
-form.addEventListener('submit', e => {
-    e.preventDefault()
-    localStorage.setItem('focusTime', focusTimeInput.value)
-    localStorage.setItem('breakTime', breakTimeInput.value)
-})
-
-resetBtn.addEventListener('click', () => {
-    startBtn.style.transform = 'scale(1)'
-    clearTimeout(initial)
-    setProgress(0)
-    minDiv.textContent = 0
-    secDiv.textContent = 0
-})
-
-pauseBtn.addEventListener('click', () => {
-    if (paused === undefined) {
-        return
-    }
-    if (paused) {
-        paused = false
-        initial = setTimeout(decremenT(), 60)
-        pauseBtn.textContent = 'Paused'
-        pauseBtn.classList.remove('resume')
-    } else {
-        clearTimeout(initial)
-        pauseBtn.textContent = 'Resume'
-        pauseBtn.classList.add = 'resume'
-        paused = true
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    switchMode('pomodoro')
 })
