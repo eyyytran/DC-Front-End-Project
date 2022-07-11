@@ -9,12 +9,6 @@
     --white: #f2f2f2;
 }
 
-:root {
-    --pomodoro: var(--coral);
-    --shortBreak: (var(--periwinkle));
-    --longBreak: var(var(--blue));
-}
-
 html {
     height: 100%;
     box-sizing: border-box;
@@ -64,7 +58,7 @@ button {
 .container {
     flex: 1 0 auto;
     background: var(--white);
-    height: calc(viewport - 230px);
+    height: calc(100% - 230px);
     overflow-y: auto;
 }
 

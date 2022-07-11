@@ -1,33 +1,15 @@
-const mainBtn = document.querySelector('#main-button')
-const modeBtns = document.querySelector('#mode-buttons')
+const mainButton = document.getElementById('main-button')
+const modeButtons = document.querySelector('#mode-buttons')
 
 const timer = {
     pomodoro: 25,
     shortBreak: 5,
     longBreak: 15,
     longBreakInterval: 4,
+    sessions: 0,
 }
 
 let interval
-
-const startTimer = () => {
-    let { total } = timer.remainingTime
-    const endTime = Date.parse(new Date()) + total * 1000
-
-    mainBtn.dataset.action = 'stop'
-    mainBtn.textContent = 'stop'
-    mainBtn.classList.add('active')
-
-    interval = setInterval(function () {
-        timer.remainingTime = getRemainingTime(endTime)
-        updateClock()
-
-        total = timer.remainingTime.total
-        if (total <= 0) {
-            clearInterval(interval)
-        }
-    }, 1000)
-}
 
 const getRemainingTime = endTime => {
     const currentTime = Date.parse(new Date())
@@ -44,10 +26,48 @@ const getRemainingTime = endTime => {
     }
 }
 
-const handleMode = event => {
-    const { mode } = event.target.dataset
-    if (!mode) return
-    switchMode(mode)
+const startTimer = () => {
+    let { total } = timer.remainingTime
+    const endTime = Date.parse(new Date()) + total * 1000
+
+    if (timer.mode === 'pomodoro') timer.sessions++
+
+    mainButton.dataset.action = 'stop'
+    mainButton.textContent = 'stop'
+    mainButton.classList.add('active')
+
+    interval = setInterval(function () {
+        timer.remainingTime = getRemainingTime(endTime)
+        updateClock()
+
+        total = timer.remainingTime.total
+        if (total <= 0) {
+            clearInterval(interval)
+            switch (timer.mode) {
+                case 'pomodoro':
+                    if (timer.sessions % timer.longBreakInterval === 0) {
+                        switchMode('longBreak')
+                    } else {
+                        switchMode('shortBreak')
+                    }
+                    break
+                default:
+                    switchMode('pomodoro')
+            }
+            startTimer()
+        }
+    }, 1000)
+}
+
+const updateClock = () => {
+    const { remainingTime } = timer
+    const minutes = `${remainingTime.minutes}`.padStart(2, '0')
+    const seconds = `${remainingTime.seconds}`.padStart(2, '0')
+
+    const min = document.getElementById('minutes')
+    const sec = document.getElementById('seconds')
+    min.textContent = minutes
+    sec.textContent = seconds
 }
 
 const switchMode = mode => {
@@ -62,26 +82,38 @@ const switchMode = mode => {
         .querySelectorAll('button[data-mode]')
         .forEach(e => e.classList.remove('active'))
     document.querySelector(`[data-mode="${mode}"]`).classList.add('active')
-    circle.style.backgroundColor = `var(--${mode})`
+    //mode color switch here
 
     updateClock()
 }
 
-const updateClock = () => {
-    const { remainingTime } = timer
-    const minutes = `${remainingTime.minutes}`.padStart(2, '0')
-    const seconds = `${remainingTime.seconds}`.padStart(2, '0')
+const handleMode = event => {
+    const { mode } = event.target.dataset
 
-    const min = document.getElementById('minutes')
-    const sec = document.getElementById('seconds')
+    if (!mode) return
+
+    switchMode(mode)
+    stopTimer()
 }
 
-mainBtn.addEventListener('click', () => {
-    const { action } = mainBtn.dataset
+const stopTimer = () => {
+    clearInterval(interval)
+
+    mainButton.dataset.action = 'start'
+    mainButton.textContent = 'start'
+    mainButton.classList.remove('active')
+}
+
+mainButton.addEventListener('click', () => {
+    const { action } = mainButton.dataset
     if (action === 'start') {
         startTimer()
+    } else {
+        stopTimer()
     }
 })
+
+modeButtons.addEventListener('click', handleMode)
 
 document.addEventListener('DOMContentLoaded', () => {
     switchMode('pomodoro')
