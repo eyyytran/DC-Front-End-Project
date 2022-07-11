@@ -9,8 +9,14 @@
     --white: #f2f2f2;
 }
 
-* {
+html {
     box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 body {

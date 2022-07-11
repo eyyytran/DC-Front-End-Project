@@ -2,7 +2,9 @@ const clientId = config.clientId
 const clientSecret = config.clientSecret
 
 const embedIframe = document.querySelector('#embed-iframe')
-const makePlayerBtn = document.querySelector('#makeiframe')
+const playEasy = document.querySelector('#easy')
+const playMedium = document.querySelector('#medium')
+const playHard = document.querySelector('#hard')
 const greeting = document.querySelector('.greeting')
 
 const getToken = async () => {
@@ -18,7 +20,7 @@ const getToken = async () => {
     return data.access_token
 }
 
-const getTrack = async () => {
+const getTrack = async userChoice => {
     const token = await getToken()
     const result = await fetch(
         `https://api.spotify.com/v1/users/22miwnisbrauyz66lvgaxjnqa/playlists`,
@@ -30,17 +32,20 @@ const getTrack = async () => {
         }
     )
     const data = await result.json()
-    console.log(data)
-    console.log('easy playlist', data.items[2].id)
-    console.log('medium playlist', data.items[0].id)
-    console.log('hard playlist', data.items[1].id)
-    const easyMusic = data.items[2].id
-    //make the iframe
+
+    let playlist = ''
+    if (userChoice === 'easy') {
+        playlist = data.items[2].id
+    } else if (userChoice === 'medium') {
+        playlist = data.items[0].id
+    } else if (userChoice === 'hard') {
+        playlist = data.items[1].id
+    }
+
     const makeIframe = document.createElement('iframe')
     makeIframe.id = 'spotify-player'
     makeIframe.style = 'border-radius:0px'
-
-    makeIframe.src = `https://open.spotify.com/embed/playlist/${easyMusic}?utm_source=generator&theme=0`
+    makeIframe.src = `https://open.spotify.com/embed/playlist/${playlist}?utm_source=generator&theme=0`
     makeIframe.width = '100%'
     makeIframe.height = '130px' //this will need to become 80px in web mode
     makeIframe.frameBorder = '0'
@@ -50,7 +55,19 @@ const getTrack = async () => {
     embedIframe.append(makeIframe)
 }
 
-makePlayerBtn.addEventListener('click', () => {
-    getTrack()
+playEasy.addEventListener('click', () => {
+    embedIframe.innerHTML = null
+    getTrack('easy')
+    greeting.style.display = 'none'
+})
+
+playMedium.addEventListener('click', () => {
+    embedIframe.innerHTML = null
+    getTrack('medium')
+    greeting.style.display = 'none'
+})
+playHard.addEventListener('click', () => {
+    embedIframe.innerHTML = null
+    getTrack('hard')
     greeting.style.display = 'none'
 })
