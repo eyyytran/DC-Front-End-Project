@@ -259,3 +259,46 @@ button:hover {
     height: 64px;
     width: 64px;
 }
+
+@media (min-width: 500px) {
+    body {
+        display: grid;
+        grid-template:
+            'menu header header header header header'
+            'menu content content content content content'
+            'menu content content content content content'
+            'menu footer footer footer footer footer';
+    }
+
+    .header {
+        grid-area: header;
+        height: 100%;
+    }
+
+    .nav-bar {
+        grid-area: menu;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 40px;
+        height: 100%;
+        width: 100%;
+        padding-top: 25px;
+    }
+
+    .nav-bar-button {
+        height: 40px;
+        width: 40px;
+    }
+
+    .container {
+        grid-area: content;
+        height: inherit;
+    }
+
+    .spotify-player {
+        grid-area: footer;
+    }
+}
+
+@media (min-width: 900px) {
+}
