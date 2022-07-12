@@ -240,6 +240,7 @@ button:hover {
 
 .spotify-player {
     flex-shrink: 0;
+    margin-bottom: -8px;
 }
 
 .nav-bar {
@@ -292,7 +293,19 @@ button:hover {
 
     .container {
         grid-area: content;
-        height: inherit;
+        height: 100%;
+    }
+
+    .playlist-menu {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .playlist-cards {
+        height: 300px;
+        width: 300px;
     }
 
     .spotify-player {
@@ -300,5 +313,10 @@ button:hover {
     }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1040px) {
+    .spotify-player {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
 }
