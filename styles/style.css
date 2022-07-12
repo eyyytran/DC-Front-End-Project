@@ -25,8 +25,8 @@ body {
     background: rgb(249, 135, 142);
     background: linear-gradient(
         133deg,
-        rgba(249, 135, 142, 1) 0%,
-        rgba(242, 242, 242, 1) 12%
+        rgba(249, 135, 142, 0.5) 0%,
+        rgba(242, 242, 242, 1) 10%
     );
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -124,27 +124,10 @@ button:hover {
 
 .progress-ring_circle {
     z-index: 0;
-    transition: 0.5s;
+    transition: 1s ease-in-out;
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
     stroke: var(--coral);
-}
-
-.pulsing {
-    animation: pulse 0.9s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%,
-    100% {
-        transform: rotate(-90) scale(1);
-    }
-    50% {
-        transform: rotate(-90) scale(1.05);
-    }
-    75% {
-        transform: rotate(-90) scale(0.8);
-    }
 }
 
 .clock {
@@ -244,7 +227,7 @@ button:hover {
 }
 
 .nav-bar-button {
-    background: none;
+    background-color: transparent;
     height: 64px;
     width: 64px;
 }
