@@ -79,15 +79,43 @@ button:hover {
     padding: 20px;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
     /* display: none; */
 }
 
+.playlist-cards {
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    border-radius: 10px;
+    background: rgba(255, 247, 247, 0.6);
+    box-shadow: 0px 0px 3px 1px rgba(102, 102, 102, 0.2);
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    align-self: center;
+    grid-row: 1;
+    padding: 10px;
+}
+
+.card-desc {
+    grid-row: 2;
+    padding: 10px;
+}
+
 .playlist-button {
-    margin: auto;
-    height: 100px;
-    width: 90%;
-    border-radius: 5px;
-    font-size: 30px;
+    grid-row: 3;
+    height: 100%;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.play-buttons {
+    height: 30px;
+    width: 30px;
+    object-fit: contain;
 }
 
 #easy {
@@ -95,7 +123,7 @@ button:hover {
 }
 
 #medium {
-    background: var(--blue);
+    background-color: var(--blue);
 }
 
 #hard {
