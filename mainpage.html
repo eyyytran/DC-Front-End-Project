@@ -13,7 +13,10 @@
     </head>
     <body>
         <div class="header">
-            <div class="greeting">Which study mode are you in today?</div>
+            <div class="greeting" id="playlist-header">
+                Which study mode are you in today?
+            </div>
+            <div class="greeting" id="timer-header">Let's get to work!</div>
         </div>
         <div class="container">
             <div class="playlist-menu">
@@ -58,17 +61,24 @@
                 >
                     Start
                 </button>
-                <svg class="progress-ring" height="120" width="120">
+                <svg
+                    class="progress-ring"
+                    width="250"
+                    height="250"
+                    id="progress-ring"
+                >
                     <circle
-                        class="progress-ring_circle"
+                        class="progress-ring__circle"
+                        stroke="blue"
                         stroke-width="8"
                         fill="transparent"
-                        cx="60"
-                        cy="60"
-                        r="50"
+                        r="110"
+                        cx="125"
+                        cy="125"
                     />
                 </svg>
             </div>
+            <div class="user-page"></div>
         </div>
         <div class="spotify-player">
             <div id="embed-iframe"></div>

@@ -1,9 +1,13 @@
 const clientId = config.clientId
 const clientSecret = config.clientSecret
+const userPlaylist = config.userPlaylist
+
+const header = document.querySelector('.header')
+const playlistHeader = document.querySelector('#playlist-header')
+const timerHeader = document.querySelector('#timer-header')
 
 const playListMenu = document.querySelector('.playlist-menu')
 const timerPage = document.querySelector('.timer-page')
-const header = document.querySelector('.header')
 
 const embedIframe = document.querySelector('#embed-iframe')
 const playEasy = document.querySelector('#easy')
@@ -31,7 +35,7 @@ const getToken = async () => {
 const getTrack = async userChoice => {
     const token = await getToken()
     const result = await fetch(
-        `https://api.spotify.com/v1/users/22miwnisbrauyz66lvgaxjnqa/playlists`,
+        `https://api.spotify.com/v1/users/${userPlaylist}/playlists`,
         {
             method: 'GET',
             headers: {
@@ -65,18 +69,15 @@ const getTrack = async userChoice => {
 
 playEasy.addEventListener('click', () => {
     embedIframe.innerHTML = null
-    header.style.display = 'none'
     getTrack('easy')
 })
 
 playMedium.addEventListener('click', () => {
     embedIframe.innerHTML = null
-    header.style.display = 'none'
     getTrack('medium')
 })
 playHard.addEventListener('click', () => {
     embedIframe.innerHTML = null
-    header.style.display = 'none'
     getTrack('hard')
 })
 
@@ -84,10 +85,14 @@ playHard.addEventListener('click', () => {
 
 musicBtn.addEventListener('click', () => {
     timerPage.style.display = 'none'
+    timerHeader.style.display = 'none'
+    playlistHeader.style.display = 'inline-block'
     playListMenu.style.display = 'grid'
 })
 
 timerBtn.addEventListener('click', () => {
     playListMenu.style.display = 'none'
+    playlistHeader.style.display = 'none'
+    timerHeader.style.display = 'inline-block'
     timerPage.style.display = 'flex'
 })

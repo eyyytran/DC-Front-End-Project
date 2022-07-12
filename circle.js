@@ -1,8 +1,8 @@
-const circle = document.querySelector('.progress-ring_circle')
+const circle = document.querySelector('.progress-ring__circle')
 const radius = circle.r.baseVal.value
 const circumference = radius * 2 * Math.PI
 
-circle.style.strokeDasharray = circumference
+circle.style.strokeDasharray = `${circumference} ${circumference}`
 circle.style.strokeDashoffset = circumference
 
 const setProgress = percent => {
