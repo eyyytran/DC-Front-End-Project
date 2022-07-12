@@ -3,11 +3,12 @@ const modeButtons = document.querySelector('#mode-buttons')
 const pomodoroBtn = document.querySelector('#pomodoro')
 const shortBreakBtn = document.querySelector('#short-break')
 const longBreakBtn = document.querySelector('#long-break')
+const timerSound = new Audio('/DC-Front-End-Project/alarms/starttimer.mp3')
 
 const timer = {
-    pomodoro: 25,
-    shortBreak: 5,
-    longBreak: 15,
+    pomodoro: 25, //change to 25
+    shortBreak: 5, //change to 5
+    longBreak: 15, //change to 15
     longBreakInterval: 4,
     sessions: 0,
 }
@@ -36,7 +37,7 @@ const startTimer = () => {
     if (timer.mode === 'pomodoro') timer.sessions++
 
     mainButton.dataset.action = 'stop'
-    mainButton.textContent = 'stop'
+    mainButton.textContent = 'STOP'
     mainButton.classList.add('active')
 
     interval = setInterval(function () {
@@ -57,6 +58,7 @@ const startTimer = () => {
                 default:
                     switchMode('pomodoro')
             }
+            document.querySelector(`[data-sound="${timer.mode}"]`).play()
             startTimer()
         }
     }, 1000)
@@ -115,11 +117,12 @@ const stopTimer = () => {
     clearInterval(interval)
 
     mainButton.dataset.action = 'start'
-    mainButton.textContent = 'start'
+    mainButton.textContent = 'START'
     mainButton.classList.remove('active')
 }
 
 mainButton.addEventListener('click', () => {
+    timerSound.play()
     const { action } = mainButton.dataset
     if (action === 'start') {
         startTimer()

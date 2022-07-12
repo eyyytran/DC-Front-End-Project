@@ -7,7 +7,13 @@ const loginBtn = document.querySelector('.log-in')
 const SPOTIFY_AUTHORIZE_ENDPOINT = 'https://accounts.spotify.com/authorize'
 const REDIRECT_URI_AFTER_LOGIN =
     'http://127.0.0.1:5500/DC-Front-End-Project/mainpage.html'
-const SCOPES = ['user-read-currently-playing', 'user-read-playback-state']
+const SCOPES = [
+    'user-read-currently-playing',
+    'user-read-playback-state',
+    'streaming',
+    'playlist-read-private',
+    'playlist-read-collaborative',
+]
 const SPACE_DELIMITER = '%20'
 const SCOPES_URL_PARAM = SCOPES.join(SPACE_DELIMITER)
 

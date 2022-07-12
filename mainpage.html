@@ -6,10 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Get to Work Main!</title>
         <link rel="stylesheet" href="style.css" />
-        <script defer type="text/javascript" src="./config.js"></script>
-        <script defer src="app.js"></script>
-        <script defer src="timer.js"></script>
-        <script defer src="circle.js"></script>
+        <script defer type="text/javascript" src="./scripts/config.js"></script>
+        <script defer src="./scripts/app.js"></script>
+        <script defer src="./scripts/timer.js"></script>
     </head>
     <body>
         <div class="header">
@@ -17,6 +16,7 @@
                 Which study mode are you in today?
             </div>
             <div class="greeting" id="timer-header">Let's get to work!</div>
+            <div class="greeting" id="user-header">My Account</div>
         </div>
         <div class="container">
             <div class="playlist-menu">
@@ -59,26 +59,89 @@
                     data-action="start"
                     id="main-button"
                 >
-                    Start
+                    START
                 </button>
-                <svg
-                    class="progress-ring"
-                    width="250"
-                    height="250"
-                    id="progress-ring"
-                >
-                    <circle
-                        class="progress-ring__circle"
-                        stroke="blue"
-                        stroke-width="8"
-                        fill="transparent"
-                        r="110"
-                        cx="125"
-                        cy="125"
-                    />
-                </svg>
+                <audio
+                    src="/DC-Front-End-Project/alarms/starttimer.mp3"
+                    data-sound="pomodoro"
+                ></audio>
+                <audio
+                    src="/DC-Front-End-Project/alarms/alarm.mp3"
+                    data-sound="shortBreak"
+                ></audio>
+                <audio
+                    src="/DC-Front-End-Project/alarms/alarm.mp3"
+                    data-sound="longBreak"
+                ></audio>
             </div>
-            <div class="user-page"></div>
+            <div class="user-page">
+                <div class="user-row">
+                    <div class="user-module">
+                        <div class="user-name">Username</div>
+                        <img
+                            src="/DC-Front-End-Project/logos/face-smile-solid.svg"
+                            alt="user image"
+                            id="user-image"
+                        />
+                    </div>
+                </div>
+                <div class="user-choices" id="notifications">
+                    Notifications
+                    <button class="user-buttons">
+                        <img
+                            src="/DC-Front-End-Project/logos/chevron-right-solid.svg"
+                            alt="arrow pointing right"
+                            id="chevron-button"
+                        />
+                    </button>
+                </div>
+                <div class="user-choices" id="courses">
+                    Courses
+                    <button class="user-buttons">
+                        <img
+                            src="/DC-Front-End-Project/logos/chevron-right-solid.svg"
+                            alt="arrow pointing right"
+                            id="chevron-button"
+                        />
+                    </button>
+                </div>
+                <div class="user-choices" id="scoreboard">
+                    Scoreboard
+                    <button class="user-buttons">
+                        <img
+                            src="/DC-Front-End-Project/logos/chevron-right-solid.svg"
+                            alt="arrow pointing right"
+                            id="chevron-button"
+                        />
+                    </button>
+                </div>
+                <div class="user-choices" id="settings">
+                    Settings
+                    <button class="user-buttons">
+                        <img
+                            src="/DC-Front-End-Project/logos/chevron-right-solid.svg"
+                            alt="arrow pointing right"
+                            id="chevron-button"
+                        />
+                    </button>
+                </div>
+                <div class="user-choices" id="about">
+                    <div class="about-contents">
+                        <div class="about-title">About</div>
+                        <div class="credits">
+                            The alarm sounds used are courtesy of ZipSplat.com.
+                            The icons were sourced from Font Awesome.
+                        </div>
+                    </div>
+                    <button class="user-buttons about-button">
+                        <img
+                            src="/DC-Front-End-Project/logos/chevron-right-solid.svg"
+                            alt="arrow pointing right"
+                            id="chevron-button"
+                        />
+                    </button>
+                </div>
+            </div>
         </div>
         <div class="spotify-player">
             <div id="embed-iframe"></div>
@@ -86,21 +149,21 @@
         <div class="nav-bar">
             <button id="music-button" class="nav-bar-button">
                 <img
-                    src="/logos/music-solid.svg"
+                    src="/DC-Front-End-Project/logos/music-solid.svg"
                     alt="musical note button"
                     class="nav-bar-image"
                 />
             </button>
             <button id="timer-button" class="nav-bar-button">
                 <img
-                    src="/logos/stopwatch-solid.svg"
+                    src="/DC-Front-End-Project/logos/stopwatch-solid.svg"
                     alt="stop watch button"
                     class="nav-bar-image"
                 />
             </button>
             <button id="user-button" class="nav-bar-button">
                 <img
-                    src="/logos/user-solid.svg"
+                    src="/DC-Front-End-Project/logos/user-solid.svg"
                     alt="user image button"
                     class="nav-bar-image"
                 />

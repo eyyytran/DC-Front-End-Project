@@ -64,6 +64,10 @@ button:hover {
     display: none; /* the initial state */
 }
 
+#user-header {
+    display: none; /*initial state*/
+}
+
 .container {
     flex: 1;
     background: transparent;
@@ -77,6 +81,7 @@ button:hover {
     padding: 20px;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
+    /* display: none; */
 }
 
 .playlist-button {
@@ -133,12 +138,61 @@ button:hover {
     width: 60%;
 }
 
-#progress-ring {
-    z-index: 0;
+.user-page {
+    background: rgba(173, 172, 172, 0.2);
+    min-height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 40% 1fr 1fr 1fr 1fr;
+    gap: 0px;
+    padding: 0px;
+    display: none;
 }
 
-.progress-ring__circle {
-    stroke-dasharray: 10 20;
+.user-row {
+    grid-row: 1;
+    border-top: 1px solid rgba(164, 162, 162, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-module {
+    background: var(--white);
+    height: 150px;
+    width: 250px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#user-image {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    margin: 10px;
+}
+
+.user-choices {
+    background: var(--white);
+    border-top: 1px solid rgba(164, 162, 162, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-size: 18px;
+}
+
+#chevron-button {
+    height: 30px;
+    width: 30px;
+}
+
+.credits {
+    display: none;
 }
 
 .spotify-player {
