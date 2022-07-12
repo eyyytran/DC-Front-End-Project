@@ -5,10 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Get to Work Main!</title>
-        <link rel="stylesheet" href="./styles/style.css" />
+        <link defer rel="stylesheet" href="./styles/style.css" />
         <script defer type="text/javascript" src="./scripts/config.js"></script>
         <script defer src="./scripts/app.js"></script>
         <script defer src="./scripts/timer.js"></script>
+        <script defer src="./scripts/progresscircle.js"></script>
     </head>
     <body>
         <div class="header">
@@ -30,6 +31,16 @@
                     <span class="separator">:</span>
                     <span id="seconds">00</span>
                 </div>
+                <svg class="progress-ring" height="360" width="360">
+                    <circle
+                        class="progress-ring_circle"
+                        stroke-width="8"
+                        fill="transparent"
+                        r="172"
+                        cx="180"
+                        cy="180"
+                    />
+                </svg>
                 <div class="button-group mode-buttons" id="mode-buttons">
                     <button
                         data-mode="pomodoro"

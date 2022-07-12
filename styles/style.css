@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root {
-    --purple: #aa59c0;
-    --yellow: #f3d012;
     --periwinkle: #9eb4f1;
     --blue: #5fbbda;
     --coral: #f9878e;
@@ -108,16 +106,50 @@ button:hover {
     height: 100%;
     width: 100%;
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    z-index: 1;
     display: none;
+}
+
+.progress-ring {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.progress-ring_circle {
+    z-index: 0;
+    transition: 0.5s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: var(--coral);
+}
+
+.pulsing {
+    animation: pulse 0.9s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: rotate(-90) scale(1);
+    }
+    50% {
+        transform: rotate(-90) scale(1.05);
+    }
+    75% {
+        transform: rotate(-90) scale(0.8);
+    }
 }
 
 .clock {
     font-size: 50px;
+    z-index: 1;
 }
 
 #pomodoro,

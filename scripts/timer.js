@@ -73,6 +73,13 @@ const updateClock = () => {
     const sec = document.getElementById('seconds')
     min.textContent = minutes
     sec.textContent = seconds
+
+    perc = Math.ceil(
+        ((timer[timer.mode] * 60 - timer.remainingTime.total) /
+            (timer[timer.mode] * 60)) *
+            100
+    )
+    setProgress(perc)
 }
 
 const switchMode = mode => {
