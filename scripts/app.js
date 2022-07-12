@@ -71,19 +71,8 @@ const getTrack = async userChoice => {
     embedIframe.append(makeIframe)
 }
 
-const changeColors = userChoice => {
-    if (userChoice === 'easy') {
-        document.querySelector('.color-state-gradient').style.background =
-            'linear-gradient(133deg,rbga(158,180,241,1) 0%, rgba(242,242,242,1) 12%)'
-    } else if (userChoice === 'medium') {
-        document.querySelector('.color-state-gradient').style.background =
-            'linear-gradient(133deg,rbga(95,187,218,1) 0%, rgba(242,242,242,1) 12%)'
-    } else return
-}
-
 playEasy.addEventListener('click', () => {
     embedIframe.innerHTML = null
-    changeColors('easy')
     getTrack('easy')
 })
 
