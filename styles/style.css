@@ -4,7 +4,7 @@
     --periwinkle: #9eb4f1;
     --blue: #5fbbda;
     --coral: #f9878e;
-    --white: #f2f2f2;
+    --white: #f6f6f6;
 }
 
 html {
@@ -26,7 +26,7 @@ body {
     background: linear-gradient(
         133deg,
         rgba(249, 135, 142, 0.5) 0%,
-        rgba(242, 242, 242, 1) 10%
+        rgba(246, 246, 246, 1) 10%
     );
     font-family: 'Poppins', sans-serif;
     display: flex;
