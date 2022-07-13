@@ -246,6 +246,7 @@ button:focus {
 #chevron-button {
     height: 30px;
     width: 30px;
+    object-fit: contain;
 }
 
 .credits {
@@ -329,16 +330,25 @@ button:focus {
     }
 
     .user-module {
-        grid-template-rows: 40% repeat(5 30px);
+        grid-template-rows: 40% repeat(5 auto);
     }
 
     .user-row {
         padding: 20px;
+        border-bottom: none;
     }
 
     .user-choices {
         padding: 5px;
         font-size: 16px;
+        height: 40px;
+        border-top: 1px solid rgba(164, 162, 162, 0.8);
+    }
+
+    #chevron-button {
+        height: 20px;
+        width: 20px;
+        object-fit: contain;
     }
 }
 
