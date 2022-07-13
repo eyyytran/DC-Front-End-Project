@@ -20,6 +20,7 @@ const playHard = document.querySelector('#hard')
 const musicBtn = document.querySelector('#music-button')
 const timerBtn = document.querySelector('#timer-button')
 const userBtn = document.querySelector('#user-button')
+
 const aboutBtn = document.querySelector('.about-button')
 
 //Set App Colors
@@ -101,6 +102,7 @@ playMedium.addEventListener('click', () => {
     embedIframe.innerHTML = null
     getTrack('medium')
     changeColor('--blue')
+    setColors()
 })
 playHard.addEventListener('click', () => {
     embedIframe.innerHTML = null
