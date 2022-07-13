@@ -85,7 +85,10 @@ button {
 
 button:hover {
     cursor: pointer;
-    background: linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08));
+}
+
+button:focus {
+    border: none;
 }
 
 .log-in {
@@ -94,7 +97,6 @@ button:hover {
 
 .close-button {
     background: #1e1b18;
-    border: 3px solid white;
 }
 
 .link {
