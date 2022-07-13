@@ -6,8 +6,8 @@ const longBreakBtn = document.querySelector('#long-break')
 const timerSound = new Audio('/DC-Front-End-Project/alarms/starttimer.mp3')
 
 const timer = {
-    pomodoro: 0.1, //change to 25
-    shortBreak: 0.1, //change to 5
+    pomodoro: 0.5, //change to 25
+    shortBreak: 5, //change to 5
     longBreak: 15, //change to 15
     longBreakInterval: 2, //change to 4
     sessions: 0,
