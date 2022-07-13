@@ -3,7 +3,7 @@ const clientSecret = config.clientSecret
 
 const loginBtn = document.querySelector('.log-in')
 
-//Enable the user to log into their spotify
+//Enable the user to log into their Spotify Account
 const SPOTIFY_AUTHORIZE_ENDPOINT = 'https://accounts.spotify.com/authorize'
 const REDIRECT_URI_AFTER_LOGIN =
     'http://127.0.0.1:5500/DC-Front-End-Project/mainpage.html'

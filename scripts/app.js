@@ -36,7 +36,7 @@ const changeColor = color => {
 const setColors = () => {
     const hiddenDiv = document.querySelector('#modecolor')
     const modeColor = hiddenDiv === null ? '--coral' : hiddenDiv.innerHTML
-    pomodoroBtn.style.background = `var(${modeColor})`
+    document.querySelector('.active').style.background = `var(${modeColor})`
     mainButton.style.background = `var(${modeColor})`
     circle.style.stroke = `var(${modeColor})`
     body.style.background = `linear-gradient(133deg, var(${modeColor}) 0%, var(--white) 10%)`
@@ -83,7 +83,7 @@ const getTrack = async userChoice => {
     makeIframe.style = 'border-radius:5px'
     makeIframe.src = `https://open.spotify.com/embed/playlist/${playlist}?utm_source=generator&theme=0`
     makeIframe.width = '100%'
-    makeIframe.height = '120px' //this will need to become 80px in web mode
+    makeIframe.height = '120px'
     makeIframe.frameBorder = '0'
     makeIframe.allowfullscreen = ''
     makeIframe.allow =
