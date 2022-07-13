@@ -93,7 +93,7 @@ musicBtn.addEventListener('click', () => {
     userPage.style.display = 'none'
     userHeader.style.display = 'none'
     playlistHeader.style.display = 'inline-block'
-    playListMenu.style.display = 'grid'
+    playListMenu.style.display = 'flex'
 })
 
 timerBtn.addEventListener('click', () => {

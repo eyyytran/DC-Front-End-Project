@@ -77,8 +77,8 @@ button:hover {
     height: 100%;
     width: 100%;
     padding: 20px;
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 10px;
     /* display: none; */
 }
@@ -178,7 +178,7 @@ button:hover {
     padding: 10px;
     border-radius: 5px;
     height: 50px;
-    width: 60%;
+    width: 200px;
 }
 
 .user-page {
@@ -264,20 +264,17 @@ button:hover {
 @media (min-width: 500px) {
     body {
         display: grid;
-        grid-template:
-            'menu header header header header header'
-            'menu content content content content content'
-            'menu content content content content content'
-            'menu footer footer footer footer footer';
+        grid-template-columns: 5% 95%;
+        grid-template-rows: 10% 70% 20%;
     }
 
     .header {
-        grid-area: header;
         height: 100%;
+        grid-area: 1 / 2 / span 1 / span 1;
     }
 
     .nav-bar {
-        grid-area: menu;
+        grid-area: 1 / 1 / span 3 / span 1;
         flex-direction: column;
         justify-content: flex-start;
         gap: 40px;
@@ -292,28 +289,34 @@ button:hover {
     }
 
     .container {
-        grid-area: content;
-        height: 100%;
+        height: inherit;
+        overflow-x: auto;
     }
 
     .playlist-menu {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 
     .playlist-cards {
-        height: 300px;
-        width: 300px;
+        height: 250px;
+        width: 250px;
     }
 
     .spotify-player {
-        grid-area: footer;
+        grid-area: 3 / 2 / span 1 / span 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
     }
 }
 
 @media (min-width: 1040px) {
+    body {
+        overflow-y: hidden;
+    }
+
     .spotify-player {
         display: flex;
         flex-direction: column;

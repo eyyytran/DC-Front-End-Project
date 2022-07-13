@@ -10,7 +10,6 @@ const REDIRECT_URI_AFTER_LOGIN =
 const SCOPES = [
     'user-read-currently-playing',
     'user-read-playback-state',
-    'streaming',
     'playlist-read-private',
     'playlist-read-collaborative',
 ]
