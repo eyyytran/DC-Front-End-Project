@@ -85,6 +85,7 @@ button {
 
 button:hover {
     cursor: pointer;
+    background: linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08));
 }
 
 .log-in {

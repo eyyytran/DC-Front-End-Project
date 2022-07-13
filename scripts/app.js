@@ -1,11 +1,12 @@
 const clientId = config.clientId
 const clientSecret = config.clientSecret
 
+const body = document.body
+
 const header = document.querySelector('.header')
 const playlistHeader = document.querySelector('#playlist-header')
 const timerHeader = document.querySelector('#timer-header')
 const userHeader = document.querySelector('#user-header')
-console.log(userHeader)
 
 const playListMenu = document.querySelector('.playlist-menu')
 const timerPage = document.querySelector('.timer-page')
@@ -19,8 +20,26 @@ const playHard = document.querySelector('#hard')
 const musicBtn = document.querySelector('#music-button')
 const timerBtn = document.querySelector('#timer-button')
 const userBtn = document.querySelector('#user-button')
-
 const aboutBtn = document.querySelector('.about-button')
+
+//Set App Colors
+
+const changeColor = color => {
+    const makeHidden = document.createElement('div')
+    makeHidden.innerHTML = color
+    makeHidden.style.display = 'none'
+    makeHidden.id = 'modecolor'
+    embedIframe.append(makeHidden)
+}
+
+const setColors = () => {
+    const hiddenDiv = document.querySelector('#modecolor')
+    const modeColor = hiddenDiv === null ? '--coral' : hiddenDiv.innerHTML
+    pomodoroBtn.style.background = `var(${modeColor})`
+    mainButton.style.background = `var(${modeColor})`
+    circle.style.stroke = `var(${modeColor})`
+    body.style.background = `linear-gradient(133deg, var(${modeColor}) 0%, var(--white) 10%)`
+}
 
 ///music player functions
 const getToken = async () => {
@@ -74,15 +93,20 @@ const getTrack = async userChoice => {
 playEasy.addEventListener('click', () => {
     embedIframe.innerHTML = null
     getTrack('easy')
+    changeColor('--periwinkle')
+    setColors()
 })
 
 playMedium.addEventListener('click', () => {
     embedIframe.innerHTML = null
     getTrack('medium')
+    changeColor('--blue')
 })
 playHard.addEventListener('click', () => {
     embedIframe.innerHTML = null
     getTrack('hard')
+    changeColor('--coral')
+    setColors()
 })
 
 //Nav Bar Functions

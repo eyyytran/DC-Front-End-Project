@@ -6,7 +6,7 @@ const longBreakBtn = document.querySelector('#long-break')
 const timerSound = new Audio('/DC-Front-End-Project/alarms/starttimer.mp3')
 
 const timer = {
-    pomodoro: 0.5, //change to 25
+    pomodoro: 25, //change to 25
     shortBreak: 5, //change to 5
     longBreak: 15, //change to 15
     longBreakInterval: 2, //change to 4
@@ -93,17 +93,21 @@ const switchMode = mode => {
     document
         .querySelectorAll('button[data-mode]')
         .forEach(e => e.classList.remove('active'))
+
     document.querySelector(`[data-mode="${mode}"]`).classList.add('active')
+
+    const hiddenDiv = document.querySelector('#modecolor')
+    const modeColor = hiddenDiv === null ? '--coral' : hiddenDiv.innerHTML
     if (mode === 'pomodoro') {
-        pomodoroBtn.style.background = 'var(--coral)'
+        pomodoroBtn.style.background = `var(${modeColor})`
         longBreakBtn.style.background = 'rgba(102, 102, 102, 0.2)'
         shortBreakBtn.style.background = 'rgba(102, 102, 102, 0.2)'
     } else if (mode === 'shortBreak') {
-        shortBreakBtn.style.background = 'var(--coral)'
+        shortBreakBtn.style.background = `var(${modeColor})`
         longBreakBtn.style.background = 'rgba(102, 102, 102, 0.2)'
         pomodoroBtn.style.background = 'rgba(102, 102, 102, 0.2)'
     } else {
-        longBreakBtn.style.background = 'var(--coral)'
+        longBreakBtn.style.background = `var(${modeColor})`
         shortBreakBtn.style.background = 'rgba(102, 102, 102, 0.2)'
         pomodoroBtn.style.background = 'rgba(102, 102, 102, 0.2)'
     }
