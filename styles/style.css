@@ -284,7 +284,7 @@ button:focus {
     body {
         display: grid;
         grid-template-columns: 5% 95%;
-        grid-template-rows: 10% 70% 20%;
+        grid-template-rows: 10% auto 120px;
     }
 
     .header {
@@ -308,7 +308,7 @@ button:focus {
     }
 
     .container {
-        height: inherit;
+        height: 100%;
     }
 
     .playlist-menu {
@@ -335,14 +335,14 @@ button:focus {
 
     .user-row {
         padding: 20px;
-        border-bottom: none;
+        border: none;
     }
 
     .user-choices {
         padding: 5px;
         font-size: 16px;
         height: 40px;
-        border-top: 1px solid rgba(164, 162, 162, 0.8);
+        border-bottom: none;
     }
 
     #chevron-button {
