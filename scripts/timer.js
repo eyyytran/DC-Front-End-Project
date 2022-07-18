@@ -98,18 +98,21 @@ const switchMode = mode => {
 
     const hiddenDiv = document.querySelector('#modecolor')
     const modeColor = hiddenDiv === null ? '--coral' : hiddenDiv.innerHTML
+
+    const makeAllButtonsDefaultColor = () => {
+        const buttons = [pomodoroBtn, longBreakBtn, shortBreakBtn]
+        buttons.forEach(
+            button => (button.style.background = 'rgba(102, 102, 102, 0.2)')
+        )
+    }
+
+    makeAllButtonsDefaultColor()
     if (mode === 'pomodoro') {
         pomodoroBtn.style.background = `var(${modeColor})`
-        longBreakBtn.style.background = 'rgba(102, 102, 102, 0.2)'
-        shortBreakBtn.style.background = 'rgba(102, 102, 102, 0.2)'
     } else if (mode === 'shortBreak') {
         shortBreakBtn.style.background = `var(${modeColor})`
-        longBreakBtn.style.background = 'rgba(102, 102, 102, 0.2)'
-        pomodoroBtn.style.background = 'rgba(102, 102, 102, 0.2)'
     } else {
         longBreakBtn.style.background = `var(${modeColor})`
-        shortBreakBtn.style.background = 'rgba(102, 102, 102, 0.2)'
-        pomodoroBtn.style.background = 'rgba(102, 102, 102, 0.2)'
     }
 
     updateClock()
