@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root {
-    --periwinkle: #9eb4f1;
-    --blue: #5fbbda;
-    --coral: #f9878e;
+    --casual: #9eb4f1;
+    --urgent: #5fbbda;
+    --crisis: #f9878e;
     --white: #f6f6f6;
 }
 
@@ -131,16 +131,16 @@ button:focus {
     object-fit: contain;
 }
 
-#easy {
-    background-color: var(--periwinkle);
+#casual {
+    background-color: var(--casual);
 }
 
-#medium {
-    background-color: var(--blue);
+#urgent {
+    background-color: var(--urgent);
 }
 
-#hard {
-    background-color: var(--coral);
+#crisis {
+    background-color: var(--crisis);
 }
 
 .timer-page {
@@ -168,7 +168,7 @@ button:focus {
     transition: 1s ease-in-out;
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
-    stroke: var(--coral);
+    stroke: var(--crisis);
 }
 
 .clock {
@@ -186,7 +186,7 @@ button:focus {
 }
 
 #main-button {
-    background: var(--coral);
+    background: var(--crisis);
     margin: 20px;
     padding: 10px;
     border-radius: 5px;

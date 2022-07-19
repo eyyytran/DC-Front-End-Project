@@ -13,9 +13,9 @@ const timerPage = document.querySelector('.timer-page')
 const userPage = document.querySelector('.user-page')
 
 const embedIframe = document.querySelector('#embed-iframe')
-const playEasy = document.querySelector('#easy')
-const playMedium = document.querySelector('#medium')
-const playHard = document.querySelector('#hard')
+const playCasual = document.querySelector('#casual')
+const playUrgent = document.querySelector('#urgent')
+const playCrisis = document.querySelector('#crisis')
 
 const musicBtn = document.querySelector('#music-button')
 const timerBtn = document.querySelector('#timer-button')
@@ -25,17 +25,8 @@ const aboutBtn = document.querySelector('.about-button')
 
 //Set App Colors
 
-const changeColor = color => {
-    const makeHidden = document.createElement('div')
-    makeHidden.innerHTML = color
-    makeHidden.style.display = 'none'
-    makeHidden.id = 'modecolor'
-    embedIframe.append(makeHidden)
-}
-
 const setColors = () => {
-    const hiddenDiv = document.querySelector('#modecolor')
-    const modeColor = hiddenDiv === null ? '--coral' : hiddenDiv.innerHTML
+    const modeColor = localStorage.getItem('playlist-color')
     document.querySelector('.active').style.background = `var(${modeColor})`
     mainButton.style.background = `var(${modeColor})`
     circle.style.stroke = `var(${modeColor})`
@@ -70,13 +61,19 @@ const getTrack = async userChoice => {
     const data = await result.json()
 
     let playlist = ''
-    if (userChoice === 'easy') {
+    localStorage.removeItem('playlist-color')
+    if (userChoice === 'casual') {
         playlist = data.items[2].id
-    } else if (userChoice === 'medium') {
+        localStorage.setItem('playlist-color', '--casual')
+    } else if (userChoice === 'urgent') {
         playlist = data.items[0].id
-    } else if (userChoice === 'hard') {
+        localStorage.setItem('playlist-color', '--urgent')
+    } else if (userChoice === 'crisis') {
         playlist = data.items[1].id
+        localStorage.setItem('playlist-color', '--crisis')
     }
+
+    setColors()
 
     const makeIframe = document.createElement('iframe')
     makeIframe.id = 'spotify-player'
@@ -91,24 +88,19 @@ const getTrack = async userChoice => {
     embedIframe.append(makeIframe)
 }
 
-playEasy.addEventListener('click', () => {
+playCasual.addEventListener('click', e => {
     embedIframe.innerHTML = null
-    getTrack('easy')
-    changeColor('--periwinkle')
-    setColors()
+    console.log(e)
+    getTrack(e.target.id)
 })
 
-playMedium.addEventListener('click', () => {
+playUrgent.addEventListener('click', e => {
     embedIframe.innerHTML = null
-    getTrack('medium')
-    changeColor('--blue')
-    setColors()
+    getTrack(e.target.id)
 })
-playHard.addEventListener('click', () => {
+playCrisis.addEventListener('click', e => {
     embedIframe.innerHTML = null
-    getTrack('hard')
-    changeColor('--coral')
-    setColors()
+    getTrack(e.target.id)
 })
 
 //Nav Bar Functions
