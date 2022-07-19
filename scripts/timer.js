@@ -96,9 +96,6 @@ const switchMode = mode => {
 
     document.querySelector(`[data-mode="${mode}"]`).classList.add('active')
 
-    const hiddenDiv = document.querySelector('#modecolor')
-    const modeColor = hiddenDiv === null ? '--coral' : hiddenDiv.innerHTML
-
     const makeAllButtonsDefaultColor = () => {
         const buttons = [pomodoroBtn, longBreakBtn, shortBreakBtn]
         buttons.forEach(
