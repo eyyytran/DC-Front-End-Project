@@ -1,5 +1,5 @@
-const clientId = '930ccc5854e1479a998f4f76bd1e4b5b'
-const clientSecret = '62c8a77dfee64d00b26817a07aac5de4'
+const clientId = process.env.CLIENTID
+const clientSecret = process.env.CLIENTSECRET
 
 const loginBtn = document.querySelector('.log-in')
 
