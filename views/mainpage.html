@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Studify</title>
+        <link defer rel="stylesheet" href="./public/css/style.css" />
+        <!-- <script
+            defer
+            type="text/javascript"
+            src="./public/js/config.js"
+        ></script> -->
+        <script defer src="./public/js/app.js"></script>
+        <script defer src="./public/js/timer.js"></script>
+        <script defer src="./public/js/progresscircle.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="greeting" id="playlist-header">
+                Which study mode are you in today?
+            </div>
+            <div class="greeting" id="timer-header">Let's get to work!</div>
+            <div class="greeting" id="user-header">My Account</div>
+        </div>
+        <div class="container">
+            <div class="playlist-menu">
+                <div class="playlist-cards" id="casual-card">
+                    <div class="card-title">Casual</div>
+                    <div class="card-desc">
+                        Either you've been on top of your time management, or
+                        you're basking in the sense of false security.
+                    </div>
+                    <button class="playlist-button" id="casual">
+                        <img
+                            src="./public/logos/play-solid.svg"
+                            alt="play button"
+                            class="play-buttons"
+                            id="casual"
+                        />
+                    </button>
+                </div>
+                <div class="playlist-cards" id="steady-card">
+                    <div class="card-title">Urgent</div>
+                    <div class="card-desc">
+                        You've been in denial about how close your deadline is,
+                        and it's time to buckle down before it's too late.
+                    </div>
+                    <button class="playlist-button" id="urgent">
+                        <img
+                            src="./public/logos/play-solid.svg"
+                            alt="play button"
+                            class="play-buttons"
+                            id="urgent"
+                        />
+                    </button>
+                </div>
+                <div class="playlist-cards" id="crisis-card">
+                    <div class="card-title">Crisis</div>
+                    <div class="card-desc">
+                        As sure and steady as the flow of time, your deadline
+                        approaches. Can you rise to the challenge?
+                    </div>
+                    <button class="playlist-button" id="crisis">
+                        <img
+                            src="./public/logos/play-solid.svg"
+                            alt="play button"
+                            class="play-buttons"
+                            id="crisis"
+                        />
+                    </button>
+                </div>
+            </div>
+            <div class="timer-page">
+                <div class="clock" id="clock">
+                    <span id="minutes">25</span>
+                    <span class="separator">:</span>
+                    <span id="seconds">00</span>
+                </div>
+                <svg class="progress-ring" height="370" width="370">
+                    <circle
+                        class="progress-ring_circle"
+                        stroke-width="8"
+                        fill="transparent"
+                        r="177"
+                        cx="185"
+                        cy="185"
+                    />
+                </svg>
+                <div class="button-group mode-buttons" id="mode-buttons">
+                    <button
+                        data-mode="pomodoro"
+                        class="button active mode-button"
+                        id="pomodoro"
+                    >
+                        Pomodoro
+                    </button>
+                    <button
+                        data-mode="shortBreak"
+                        class="button mode-button"
+                        id="short-break"
+                    >
+                        Short Break
+                    </button>
+                    <button
+                        data-mode="longBreak"
+                        class="button mode-button"
+                        id="long-break"
+                    >
+                        Long Break
+                    </button>
+                </div>
+
+                <button
+                    class="main-button"
+                    data-action="start"
+                    id="main-button"
+                >
+                    START
+                </button>
+                <audio
+                    src="./public/alarms/starttimer.mp3"
+                    data-sound="pomodoro"
+                ></audio>
+                <audio
+                    src="./public/alarms/alarm.mp3"
+                    data-sound="shortBreak"
+                ></audio>
+                <audio
+                    src="./public/alarms/alarm.mp3"
+                    data-sound="longBreak"
+                ></audio>
+            </div>
+            <div class="user-page">
+                <div class="user-row">
+                    <div class="user-module">
+                        <div class="user-name">Username</div>
+                        <img
+                            src="./public/logos/face-smile-solid.svg"
+                            alt="user image"
+                            id="user-image"
+                        />
+                    </div>
+                </div>
+                <div class="user-choices" id="notifications">
+                    Notifications
+                    <button class="user-buttons">
+                        <img
+                            src="./public/logos/chevron-right-solid.svg"
+                            alt="arrow pointing right"
+                            id="chevron-button"
+                        />
+                    </button>
+                </div>
+                <div class="user-choices" id="courses">
+                    Courses
+                    <button class="user-buttons">
+                        <img
+                            src="./public/logos/chevron-right-solid.svg"
+                            alt="arrow pointing right"
+                            id="chevron-button"
+                        />
+                    </button>
+                </div>
+                <div class="user-choices" id="scoreboard">
+                    Scoreboard
+                    <button class="user-buttons">
+                        <img
+                            src="./public/logos/chevron-right-solid.svg"
+                            alt="arrow pointing right"
+                            id="chevron-button"
+                        />
+                    </button>
+                </div>
+                <div class="user-choices" id="settings">
+                    Settings
+                    <button class="user-buttons">
+                        <img
+                            src="./public/logos/chevron-right-solid.svg"
+                            alt="arrow pointing right"
+                            id="chevron-button"
+                        />
+                    </button>
+                </div>
+                <div class="user-choices" id="about">
+                    <div class="about-contents">
+                        <div class="about-title">About</div>
+                        <div class="credits">
+                            The alarm sounds used are courtesy of ZipSplat.com.
+                            The icons were sourced from Font Awesome.
+                        </div>
+                    </div>
+                    <button class="user-buttons about-button">
+                        <img
+                            src="./public/logos/chevron-right-solid.svg"
+                            alt="arrow pointing right"
+                            id="chevron-button"
+                        />
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="spotify-player">
+            <div id="embed-iframe"></div>
+        </div>
+        <div class="nav-bar">
+            <button id="music-button" class="nav-bar-button">
+                <img
+                    src="./public/logos/music-solid.svg"
+                    alt="musical note button"
+                    class="nav-bar-image"
+                />
+            </button>
+            <button id="timer-button" class="nav-bar-button">
+                <img
+                    src="./public/logos/stopwatch-solid.svg"
+                    alt="stop watch button"
+                    class="nav-bar-image"
+                />
+            </button>
+            <button id="user-button" class="nav-bar-button">
+                <img
+                    src="./public/logos/user-solid.svg"
+                    alt="user image button"
+                    class="nav-bar-image"
+                />
+            </button>
+        </div>
+    </body>
+</html>
