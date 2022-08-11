@@ -6,9 +6,9 @@ const longBreakBtn = document.querySelector('#long-break')
 const timerSound = new Audio('/DC-Front-End-Project/alarms/starttimer.mp3')
 
 const timer = {
-    pomodoro: 25,
-    shortBreak: 5,
-    longBreak: 15,
+    pomodoro: 1,
+    shortBreak: 1,
+    longBreak: 1,
     longBreakInterval: 4,
     sessions: 0,
 }
@@ -104,6 +104,7 @@ const switchMode = mode => {
     }
 
     makeAllButtonsDefaultColor()
+    const modeColor = localStorage.getItem('playlist-color')
     if (mode === 'pomodoro') {
         pomodoroBtn.style.background = `var(${modeColor})`
     } else if (mode === 'shortBreak') {
