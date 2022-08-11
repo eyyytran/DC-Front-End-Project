@@ -1,24 +1,28 @@
 {
-  "name": "dc-front-end-project",
-  "version": "1.0.0",
-  "description": "![Title Image](./logos/images/titlepage.png)",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eyyytran/DC-Front-End-Project.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/eyyytran/DC-Front-End-Project/issues"
-  },
-  "homepage": "https://github.com/eyyytran/DC-Front-End-Project#readme",
-  "dependencies": {
-    "express": "^4.18.1",
-    "express-es6-template-engine": "^2.2.3"
-  }
+    "name": "dc-front-end-project",
+    "version": "1.0.0",
+    "description": "![Title Image](./logos/images/titlepage.png)",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eyyytran/DC-Front-End-Project.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/eyyytran/DC-Front-End-Project/issues"
+    },
+    "homepage": "https://github.com/eyyytran/DC-Front-End-Project#readme",
+    "dependencies": {
+        "express": "^4.18.1",
+        "express-es6-template-engine": "^2.2.3"
+    },
+    "engines": {
+        "node": "18.x"
+    }
 }

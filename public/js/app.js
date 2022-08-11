@@ -1,5 +1,5 @@
-const clientId = process.env.CLIENTID
-const clientSecret = process.env.CLIENTSECRET
+const clientId = process.env.CLIENT_ID
+const clientSecret = process.env.CLIENT_SECRET
 
 const body = document.body
 

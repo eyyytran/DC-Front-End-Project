@@ -1,11 +1,11 @@
-const clientId = process.env.CLIENTID
-const clientSecret = process.env.CLIENTSECRET
+const clientId = process.env.CLIENT_ID
+const clientSecret = process.env.CLIENT_SECRET
 
 const loginBtn = document.querySelector('.log-in')
 
 //Enable the user to log into their Spotify Account
 const SPOTIFY_AUTHORIZE_ENDPOINT = 'https://accounts.spotify.com/authorize'
-const REDIRECT_URI_AFTER_LOGIN = 'http://localhost:3001/app'
+const REDIRECT_URI_AFTER_LOGIN = 'https://studify-timer.herokuapp.com'
 const SCOPES = [
     'user-read-currently-playing',
     'user-read-playback-state',
