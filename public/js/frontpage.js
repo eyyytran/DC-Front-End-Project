@@ -5,7 +5,7 @@ const loginBtn = document.querySelector('.log-in')
 
 //Enable the user to log into their Spotify Account
 const SPOTIFY_AUTHORIZE_ENDPOINT = 'https://accounts.spotify.com/authorize'
-const REDIRECT_URI_AFTER_LOGIN = 'https://studify-timer.herokuapp.com'
+const REDIRECT_URI_AFTER_LOGIN = 'https://studify-timer.herokuapp.com/app'
 const SCOPES = [
     'user-read-currently-playing',
     'user-read-playback-state',
