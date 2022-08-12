@@ -17,4 +17,6 @@ app.get('/app', (req, res) => {
     res.render('mainpage')
 })
 
+app.get('/client', (req, res))
+
 app.listen(PORT, console.log(`listening on port ${PORT}`))

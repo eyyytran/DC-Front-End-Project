@@ -1,5 +1,5 @@
-const clientId = process.env.CLIENT_ID
-const clientSecret = process.env.CLIENT_SECRET
+const appId = '930ccc5854e1479a998f4f76bd1e4b5b'
+const appURL = '62c8a77dfee64d00b26817a07aac5de4'
 
 const body = document.body
 
@@ -39,7 +39,7 @@ const getToken = async () => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            Authorization: 'Basic ' + btoa(clientId + ':' + clientSecret),
+            Authorization: 'Basic ' + btoa(appId + ':' + appURL),
         },
         body: 'grant_type=client_credentials',
     })
